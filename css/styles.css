@@ -217,7 +217,7 @@ p {
 .hero {
     height: 100vh;
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.7), rgba(0, 200, 81, 0.3)),
-                url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                img src="IMG/portadaweb.png";
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
