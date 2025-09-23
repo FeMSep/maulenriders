@@ -217,7 +217,7 @@ p {
 .hero {
     height: 100vh;
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.7), rgba(0, 200, 81, 0.3)),
-                img src="IMG/portadaweb.png";
+                url("../IMG/portadaweb.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
