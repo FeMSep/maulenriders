@@ -110,39 +110,28 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const contactForm = document.getElementById('contactForm');
     
+   // Enhanced form submission validation
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
             
-            // Get form data
-            const formData = new FormData(contactForm);
-            const formObject = {};
-            formData.forEach((value, key) => {
-                formObject[key] = value;
+            let isFormValid = true;
+            
+            // Validate all fields
+            formInputs.forEach(field => {
+                if (!validateField(field)) {
+                    isFormValid = false;
+                }
             });
             
-            // Show loading state
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                // Show success message
-                showNotification('¡Mensaje enviado correctamente! Te contactaremos pronto.', 'success');
-                
-                // Reset form
-                contactForm.reset();
-                
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                
-                console.log('Form submitted:', formObject);
-            }, 2000);
+            if (!isFormValid) {
+                e.preventDefault(); // Detiene el envío si hay errores
+                showNotification('Por favor, corrige los errores en el formulario.', 'error');
+            }
         });
     }
+    
+    console.log('Maulen Riders website loaded successfully! 🚴‍♂️');
+});
     
     // ========================================
     // SCROLL ANIMATIONS
